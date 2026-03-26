@@ -1,4 +1,5 @@
-package Exercicio_2;
+package exercicios.exercicio_2;
+
 class MinhaThread extends Thread { 
 
     public MinhaThread(String nome) {

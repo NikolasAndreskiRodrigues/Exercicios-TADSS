@@ -9,9 +9,17 @@ public class remover implements Runnable {
 
     @Override
     public void run() {
-        synchronized (numero) {
-            if (!numero.isEmpty()) {
-                numero.remove(0);
+        while (true) {
+            synchronized (numero) {
+                if (!numero.isEmpty()) {
+                    numero.remove(0);
+                }
+            }
+
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                break;
             }
         }
     }

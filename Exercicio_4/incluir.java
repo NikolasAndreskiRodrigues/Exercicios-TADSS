@@ -18,11 +18,19 @@ public class incluir implements Runnable {
     @Override
     public void run() {
         Random r = new Random();
-        synchronized (numero) {
-            if (valor != null) {
-                numero.add(valor);
-            } else {
-                numero.add((short) r.nextInt(10000));
+        while (true) {
+            synchronized (numero) {
+                if (valor != null) {
+                    numero.add(valor);
+                } else {
+                    numero.add((short) r.nextInt(10000));
+                }
+            }
+
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                break;
             }
         }
     }
